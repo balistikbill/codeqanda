@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Post;
+use App\CommentLike;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -36,5 +37,22 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function hasLiked(Post $post)
+    {
+        $commentLikesOfPost = CommentLike::where('post_id', $post->id)->get()->toArray();
+        $postsComments = $post->comments();
+        $hasLiked = false;
+
+        foreach ($commentLikesOfPost as $like) {
+            if ($like['user_id'] == \Auth::user()->id) {
+                $hasLiked = true;
+            } else {
+                $hasLiked = false;
+            }
+        }
+
+        return $hasLiked;
     }
 }

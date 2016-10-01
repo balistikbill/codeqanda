@@ -77,7 +77,7 @@ class DiscussController extends Controller
 
         Auth::user()->posts()->create($request->all());
 
-        $posts = Post::orderBy('created_at', 'ASC')->get();
+        $posts = Post::orderBy('created_at', 'DESC')->get();
 
         return view('discuss.index')->with('posts', $posts);
     }
@@ -92,11 +92,14 @@ class DiscussController extends Controller
     {
         $comments = Comment::where('post_id', $post->id)->orderBy('created_at', 'ASC')->get();
         $likes = CommentLike::where('post_id', $post->id)->get();
+        $hasLiked = Auth::user()->hasLiked($post);
 
+      
 
         return view('discuss.post')->with('post', $post)
                                    ->with('comments', $comments)
-                                   ->with('likes', $likes);
+                                   ->with('likes', $likes)
+                                   ->with('hasLiked', $hasLiked);
     }
 
     /**

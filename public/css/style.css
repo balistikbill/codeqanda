@@ -285,12 +285,13 @@ a:active {
 	border: none;
 	resize: none;
 	border-radius: 2rem;
+	border: solid 2px #d3e0e9;
 }
 
 .comment-text-wrapper {
-	background-color: white;
+	/*background-color: white;*/
 	border-radius: 2rem;
-	border: solid 1px #d3e0e9;
+	/*border: solid 1px #d3e0e9;*/
 	height: auto;
 	margin: 0 0 2rem 0;
 	padding: 0;
@@ -300,10 +301,10 @@ a:active {
 	font-size: 2rem;
 	background-color: white;
 	border-radius: 2rem;
-	border: solid 1px #d3e0e9;
+	border: solid 2px #d3e0e9;
 	height: auto;
 	margin: 0 0 2rem 0;
-	padding: 3rem 0 3rem 0;
+	padding: 3rem 0 0rem 0;
 }
 .comment-hide-show {
 	/*display: none;*/

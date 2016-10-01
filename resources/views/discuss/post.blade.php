@@ -58,22 +58,12 @@
 			</div>
 			<div class="comment-comment">
 				{{ $comment->comment }}
-			</div>
-			<div class="comment-like">
+			</div>	
 
-
-
-
-
-
-				
-
-				
-
-
+{{-- 
 				<div class="comment-likes-show">
 				@if (! count($likes))
-					<a href="" onclick="location.reload()"><span class="glyphicon glyphicon-thumbs-up" id="thumbsUpIcon" aria-hidden="true"></span></a>
+					<a href="" onclick="document.reload()"><span class="glyphicon glyphicon-thumbs-up" id="thumbsUpIcon" aria-hidden="true"></span></a>
 					<span class="comment-likes-users">Be the First to Like</span>
 				@else
 				<button class="btn btn-sm btn-primary" id="btnShowLikes">Show Likes</button>
@@ -84,10 +74,17 @@
 					$('#commentLikesUsers').toggle();
 				})
 
+				
 
 				</script>
+				
 				<ul>
 					@foreach ($likes as $like)
+						@if (! (Auth::user()->id == $like->user->id))
+						<div>
+							
+							<span class="comment-likes-users">Be the First to Like</span>
+						@endif
 						<div class="comment-likes-users" id="commentLikesUsers">
 							<li>{{ $like->user->userName }}</li>
 						</div>
@@ -97,43 +94,37 @@
 								$('#thumbsUpIcon').addClass('comment-liked');
 								// $('#thumbsUpIcon').append('You Liked');
 		      				</script>
-						@else
-							<script>
-								$('#thumbsUpIcon').after('<- Click Here to Like');
-		      				</script>
 						@endif
 					@endforeach
 				</ul>
 				@endif
-				</div>
+				</div> 
+ --}}
+
+@if ($hasLiked)
+	hello
+@else
+sdklfj
+@endif
+
+			<div class="comment-like">
+
+			
+				<a href="" onclick="location.reload()"><span class="glyphicon glyphicon-thumbs-up" id="thumbsUpIcon" aria-hidden="true"></span></a>
+
 
 
 				<script>
+					var $thumbsUpIcon = $('#thumbsUpIcon');
+					var $user = '{{ Auth::user()->userName }}';
 
-				var $thumbsUpIcon = $('#thumbsUpIcon');
-				var $user = '{{ Auth::user()->userName }}';
-
-		        $thumbsUpIcon.on('click', function () {
-		        	$.ajax({
-		        		type: 'GET',
-		        		url: "/home/" +  $user + "/" + {{ $post->id }} + "/" + {{ $comment->id }} + "/like",
-		        	});
-		        });
-
-		       
-
-
+			        $thumbsUpIcon.on('click', function () {
+			        	$.ajax({
+			        		type: 'GET',
+			        		url: "/home/" +  $user + "/" + {{ $post->id }} + "/" + {{ $comment->id }} + "/like",
+			        	});
+			        });
 				</script>
-
-
-
-
-
-
-
-
-
-
 
 
 			</div>
@@ -147,8 +138,6 @@
 
 
 @if (Auth::user())
-
-	{{-- Post Comment --}}
 	<form method="POST" action="/discuss/channels/{{ $post->post_channel }}/{{ $post->id }}/{{ $post->slug }}">
 	{{ csrf_field() }}
 	<div class="row">
@@ -169,7 +158,7 @@
 	</form>
 @endif
 
-{{-- <script>
+<script>
 	$("#postCommentBtn").click(function () {
 		$("#commentHideShow").toggle(300);
 		$('html, body').animate({
@@ -177,6 +166,6 @@
     	}, 'slow');
 	});
 
-</script> --}}
+</script>
 
 @stop
