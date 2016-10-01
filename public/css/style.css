@@ -1,0 +1,383 @@
+body {
+	/*margin-top: 70px;*/
+	/*background-color: #e6f9e3; Green Theme*/
+	background-color: #f4fcff;
+
+}
+
+a {
+	color: #000dc6;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #00ff72;
+}
+
+a:active {
+	text-decoration: none;
+	color: #00ff72;
+}
+
+.btn {
+	background-color: #28a5ff;
+
+}
+
+.top-bar {
+	/*background-color: #1eef02;  Green Theme*/
+	background-color: #00c7ff;
+	/*background-image: url('/images/binary-top-bar.jpg');*/
+	background-color: #28a5ff;
+	background-size: cover;
+	height: 10rem;
+}
+
+.slogan {
+	margin-top: 5rem;
+	font-size: 3.5rem;
+	margin-right: 10rem;
+	color: white;
+	float: right;
+}
+
+.navbar-blue {
+	background-color: #00173d;
+	color: #2072f7;
+	border-top: solid 3px #00ff72;
+	border-bottom: solid 3px #00ff72;
+	border-shadow: 3px 3px 2 #26ff00;
+}
+
+.navbar-color-blue {
+	color: #2072f7;
+}
+
+.page-navigation {
+	font-size: 3rem;
+}
+
+.page-navigation a:link, .page-navigation a:visited, .page-navigation a:active {
+	color: white;
+}
+
+.page-navigation-item {
+	border: 1px solid white;
+	background-color: #00173d;
+	padding: 0 .6rem 0 0;
+	color: #fff;
+}
+/*
+.page-navigation-item-1 {
+	padding-left: .7rem;
+}*/
+
+.page-navigation-arrow {
+	
+}
+
+
+.folder-style-nav {
+	margin-left: 7.4rem;
+	font-size: 3rem;
+}
+
+.large-r {
+	font-size: 3rem;
+	font-weight: 600;
+}
+
+/*Profile Home Classes*/
+.profile-heading {
+	font-weight: 800;
+	padding-top: 2rem;
+	margin-left: 2rem;
+}
+
+.profile-information {
+	padding-left: 5rem;
+}
+
+.profile-title {
+	clear: both;
+	padding-top: 1rem;
+}
+
+.profile-welcome {
+	padding: 1rem;
+	float: left;
+}
+
+.profile-active-since {
+	float: right;
+	padding: 1rem;
+}
+
+.profile-field-label {
+	float: left;
+}
+
+.profile-edit-btn {
+	padding: .02rem 2rem .02rem 2rem;
+	margin: 0 0 .6rem 10rem;
+	float: right;
+}
+
+.profile-field-text {
+	clear: both;
+	display: none;
+}
+
+.btn-profile {
+	width: 18rem;
+	height: 3rem;
+	padding-top: .3rem;
+	margin-bottom: 1rem;
+}
+
+/*Create Post Classes*/
+.discuss-create-wrapper {
+	background-color: white;
+	border: solid 1px #d3e0e9;
+	height: auto;
+	padding: 4rem;
+}
+
+.discuss-create-title-text {
+	font-size: 2.5rem;
+	padding: 2.5rem;
+	float: left;
+	clear: left;
+	margin-bottom: 1.6rem;
+}
+
+.discuss-create-label {
+	font-size: 2.5rem;
+	float: left;
+	clear: left;
+}
+
+.discuss-create-channel-select {
+	height: 20rem;
+	float: left;
+	clear: left;
+}
+
+.discuss-create-body-text {
+	font-size: 1.5rem;
+	padding: 1.5rem;
+	float: left;
+	clear: left;
+}
+
+.discuss-create-submit {
+	float: right;
+	clear: both;
+	margin-top: 1rem;
+}
+
+/*Discuss View Styles*/
+.discuss-wrapper {
+	background-color: white;
+	border: solid 1px #d3e0e9;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	
+}
+
+.individual-post-wrapper {
+	border-top: solid 1px #dae2ef;
+	/*border-bottom: solid 1px #dae2ef;*/
+	padding: 1.5rem 0 1.5rem 4rem;
+}
+
+.individual-post-avatar {
+	width: 4rem;
+}
+.individual-post-title {
+	clear: both;
+	float: left;
+	font-size: 1.89rem;
+}
+
+/*.individual-post-body {
+
+}*/
+
+.individual-post-username {
+	float: left;
+}
+
+.individual-post-created-at {
+	clear: left;
+	float:left;
+}
+
+.individual-post-channel {
+	float: right;
+	padding-right: 3rem;
+	margin-top: 1rem;
+}
+
+.individual-post-comment-count {
+	float: right;
+	margin-top: 1rem;
+	margin-right: 4rem;
+}
+
+/*Post View Styles*/
+
+.post-main-wrapper {
+	background-color: white;
+	border-radius: 2rem;
+	border: solid 1px #d3e0e9;
+	height: auto;
+	margin: 0 0 2rem 0;
+	padding: 0;
+}
+
+.post-wrapper {
+	/*background-color: white;*/
+	height: auto;
+}
+
+.post-avatar {
+	width: 4rem;
+	margin: 2rem;
+}
+
+.post-title {
+	/*clear: both;*/
+	/*float: left;*/
+	padding: 1rem 0 1rem 3rem;
+	font-size: 3rem;
+	border-bottom: solid 1px #d3e0e9;
+}
+
+.post-body {
+	padding: 2rem;
+	font-size: 2rem;
+}
+
+.post-who-updated {
+	padding: 1.75rem;
+}
+
+.post-created-at {
+	clear: left;
+	float:left;
+}
+
+.post-channel {
+	float: right;
+	margin-top: 1rem;
+}
+
+.post-comment-count {
+	float: right;
+	margin-top: 1rem;
+	margin-right: 4rem;
+}
+
+.comment-textarea {
+	font-size: 2rem;
+	border: none;
+	resize: none;
+	border-radius: 2rem;
+}
+
+.comment-text-wrapper {
+	background-color: white;
+	border-radius: 2rem;
+	border: solid 1px #d3e0e9;
+	height: auto;
+	margin: 0 0 2rem 0;
+	padding: 0;
+}
+
+.comment-main-wrapper {
+	font-size: 2rem;
+	background-color: white;
+	border-radius: 2rem;
+	border: solid 1px #d3e0e9;
+	height: auto;
+	margin: 0 0 2rem 0;
+	padding: 3rem 0 3rem 0;
+}
+.comment-hide-show {
+	/*display: none;*/
+}
+
+.comment-padding {
+	padding-left: 3rem;
+}
+.comment-heading {
+	margin-bottom: 2rem;
+	font-size: 1.4rem;
+}
+
+.comment-like {
+	margin-top: 2rem;padding: ;
+}
+
+.comment-liked {padding: ;
+	color: red;
+}
+
+.comment-likes-users {
+	font-size: 1.5rem;
+	display: none;
+}
+
+.outer1 {
+	padding: .05rem;
+}
+
+.inner1 {
+	/*background-color: red;*/
+	background-color: rgba(255, 0, 0, 0.3);
+	min-width: 85%;
+	border-radius: 1rem;
+	height: 1.5rem;
+	margin: .3rem;
+}
+
+.outer2 {
+	padding: .05rem;
+}
+
+.inner2 {
+	background-color: blue;
+	min-width: 85%;
+	border-radius: 1rem;
+	height: 1.5rem;
+	margin: .3rem;
+}
+
+.outer3 {
+	padding: .05rem;
+}
+
+.inner3 {
+	background-color: orange;
+	min-width: 85%;
+	border-radius: 1rem;
+	height: 1.5rem;
+	margin: .3rem;
+}
+
+/*.test2 {
+	width: 65%;
+	height: 2.5rem;
+	padding: .5rem;
+	border: solid 1px black;
+}*/
+
+
+
+
+
+
+
+
