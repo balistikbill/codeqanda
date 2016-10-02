@@ -55,4 +55,16 @@ class User extends Authenticatable
 
         return $hasLiked;
     }
+
+    public function hasLikedComment(Comment $comment)
+    {
+        // $likesForComment = $comment->where('id', $comment->id)->get();
+        $likesForComment = CommentLike::where('comment_id', $comment->id)->get();
+        foreach ($likesForComment as $commentLike) {
+            if ($commentLike->user_id == \Auth::user()->id) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

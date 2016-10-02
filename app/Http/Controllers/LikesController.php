@@ -17,6 +17,5 @@ class LikesController extends Controller
     	// $user = User::where('id', $userID);
     	$commentLikes->addLike($user, $post, $comment);
 
-    	return 'success';
     }
 }

@@ -42,6 +42,7 @@
 {{-- Posts Comments --}}
 @if (count($comments) >= 0)
 	@foreach ($comments as $comment)
+
 <div class="row">
 	<div class="col-md-1"></div>
 	<div class="col-md-10 comment-main-wrapper">
@@ -52,41 +53,42 @@
 			<div class="comment-heading">
 				(broken link)
 				<a href="#">{{ $comment->user->userName }}</a>
+
 				@if (! ($comment->user->city == 'Not Specified' || $comment->state == 'Not Specified') )
 					&nbsp&nbsp&nbsp&nbsp&nbsp( {{ $comment->user->city }}, {{ $comment->user->state }} )
 					&nbsp&nbsp&nbsp{{ $comment->created_at->diffForHumans() }}
 				@endif
+
 			</div>
 			<div class="comment-comment">{{ $comment->comment }}</div>
 				<div class="comment-likes">
-					@if ($hasLikedComment)
+
+					@if (Auth::user()->hasLikedComment($comment))
 						<span class="glyphicon glyphicon-thumbs-up post-like-icon" id="thumbsUpIconNotClickable" aria-hidden="true"></span>
 						{{ count($likes->where('comment_id', $comment->id)) }}
-
-
 					@else
 						<a href="" onclick="">
-							<span class="glyphicon glyphicon-thumbs-up post-like-icon" id="thumbsUpIconClickable" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-thumbs-up post-like-icon" id="thumbsUpIconClickable{{ $comment->id }}" aria-hidden="true"></span>
 						</a>
-
-						
-						
+	
 						@if ( count($likes->where('comment_id', $comment->id)) == 0 )
-							
+							{{-- Do not display a 0 count of comments --}}
 						@else
-							j{{ count($likes->where('comment_id', $comment->id)) }}
+							{{ count($likes->where('comment_id', $comment->id)) }}
 						@endif
+
 							<script>
-								var $thumbsUpIcon = $('#thumbsUpIconClickable');
+								var $thumbsUpIcon{{ $comment->id }} = $('#thumbsUpIconClickable{{ $comment->id }}');
 								var $user = '{{ Auth::user()->userName }}';
 
-						        $thumbsUpIcon.on('click', function () {
+						        $thumbsUpIcon{{ $comment->id }}.on('click', function () {
 						        	$.ajax({
 						        		type: 'GET',
 						        		url: "/home/" +  $user + "/" + {{ $post->id }} + "/" + {{ $comment->id }} + "/like",
+						        		success: function() {
+						        			location.reload(true);
+						        		}
 						        	});
-
-						        	location.reload(true);
 						        });
 							</script>
 					@endif
@@ -105,7 +107,6 @@
 </div>
 	@endforeach
 @endif
-
 
 
 @if (Auth::user())
@@ -138,4 +139,7 @@
 	});
 
 </script>
+
+
+
 	@stop

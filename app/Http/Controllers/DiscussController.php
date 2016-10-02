@@ -85,10 +85,20 @@ class DiscussController extends Controller
     {
         $comments = Comment::where('post_id', $post->id)->orderBy('created_at', 'ASC')->get();
         $likes = CommentLike::where('post_id', $post->id)->get();
-        
         $hasLikedComment = Auth::user()->hasLikedCommentOnPost($post);
 
-      
+
+        $likesJoinedWithUser = CommentLike::where('post_id', $post->id)
+                                ->join('users', 'comment_likes.user_id', 'users.id');
+
+        $test = $likesJoinedWithUser->orderBy('user_id', 'ASC')->get()->toArray();
+
+        $test2 = sort($test);
+
+        // foreach($test as $test2) {
+        //     echo $test2['userName'];
+        // }
+        // dd($test2);
 
         return view('discuss.post')->with('post', $post)
                                    ->with('comments', $comments)
