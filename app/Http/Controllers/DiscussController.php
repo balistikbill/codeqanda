@@ -19,6 +19,7 @@ class DiscussController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
     // {
     //     if ( isset($_GET['page']) ) 
     //     {
@@ -39,9 +40,10 @@ class DiscussController extends Controller
     //         $posts = Post::orderBy('created_at', 'DESC')->skip($skipNumber - 20)->take(20)->get();
     //     }
 
-        $links = Post::orderBy('created_at', 'DESC')->paginate(20);
+        $postsForPagination = Post::orderBy('created_at', 'DESC')->paginate(20);
 
-        return view('discuss.index')->with('posts', $posts)->with('links', $links);
+        return view('discuss.index', compact('postsForPagination'));
+
     }
 
     /**
@@ -68,7 +70,9 @@ class DiscussController extends Controller
 
         $posts = Post::orderBy('created_at', 'DESC')->get();
 
-        return view('discuss.index')->with('posts', $posts);
+        $postsForPagination = Post::orderBy('created_at', 'DESC')->paginate(20);
+
+        return view('discuss.index', compact('postsForPagination'));
     }
 
     /**
@@ -81,14 +85,15 @@ class DiscussController extends Controller
     {
         $comments = Comment::where('post_id', $post->id)->orderBy('created_at', 'ASC')->get();
         $likes = CommentLike::where('post_id', $post->id)->get();
-        $hasLiked = Auth::user()->hasLiked($post);
+        
+        $hasLikedComment = Auth::user()->hasLikedCommentOnPost($post);
 
       
 
         return view('discuss.post')->with('post', $post)
                                    ->with('comments', $comments)
                                    ->with('likes', $likes)
-                                   ->with('hasLiked', $hasLiked);
+                                   ->with('hasLikedComment', $hasLikedComment);
     }
 
     /**

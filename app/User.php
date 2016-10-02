@@ -39,7 +39,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function hasLiked(Post $post)
+    public function hasLikedCommentOnPost(Post $post)
     {
         $commentLikesOfPost = CommentLike::where('post_id', $post->id)->get()->toArray();
         $postsComments = $post->comments();
