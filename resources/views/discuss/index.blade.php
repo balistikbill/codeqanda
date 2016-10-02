@@ -79,11 +79,11 @@ var foo1 = $('.outer1');
 
 
 
-
-
+{{ $links->links() }}
 </div>
 	<div class="col-md-9 discuss-wrapper">
 			@foreach ($posts as $post)
+
 			<div class="individual-post-wrapper">
 			<div class="row">
 				<div class="col-md-1">

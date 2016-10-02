@@ -19,40 +19,30 @@ class DiscussController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        if ( isset($_GET['page']) ) 
-        {
-            $postPage = $_GET['page'];
-        } else {
-            $postPage = null;
-        }
+    // {
+    //     if ( isset($_GET['page']) ) 
+    //     {
+    //         $postPage = $_GET['page'];
+    //     } else {
+    //         $postPage = null;
+    //     }
 
-        if (! $postPage )
-        {
-            $posts = Post::orderBy('created_at', 'DESC')->limit(20)->get();
-        } else {
-            $skipNumber = $postPage;
+    //     if (! $postPage )
+    //     {
+    //         $posts = Post::orderBy('created_at', 'DESC')->limit(20)->get();
+    //     } else {
+    //         $skipNumber = $postPage;
 
-            $skipNumber = ($skipNumber * 10) * 2;
+    //         $skipNumber = ($skipNumber * 10) * 2;
 
-            $posts = Post::orderBy('created_at', 'DESC')->skip($skipNumber - 20)->take(20)->get();
-        }
+           
+    //         $posts = Post::orderBy('created_at', 'DESC')->skip($skipNumber - 20)->take(20)->get();
+    //     }
 
-        // $gcMarkdownTest = Markdown::toHtml('
-        //         ```
-        //         class Test {
-        //             protected $blah;
+         $links = Post::orderBy('created_at', 'DESC')->paginate(20);
 
-        //             public function test() {
-        //                 return false;
-        //             }
-        //         }
-        //         ```
-        //     ');
-
-   
-
-        return view('discuss.index')->with('posts', $posts);
+         
+        return view('discuss.index')->with('posts', $posts)->with('links', $links);
     }
 
     /**
