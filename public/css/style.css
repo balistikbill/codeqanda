@@ -318,17 +318,21 @@ a:active {
 	font-size: 1.4rem;
 }
 
-.comment-like {
-	margin-top: 2rem;padding: ;
-}
-
-.comment-liked {padding: ;
-	color: red;
-}
-
-.comment-likes-users {
+.comment-likes {
 	font-size: 1.5rem;
-	display: none;
+	margin-top: 2rem;
+	padding: 1rem;
+}
+
+.comment-like-username {
+	background-color: #00c7ff;
+	color: #fff;
+	border-radius: 1rem;
+	padding: .5rem 1rem .5rem 1rem;
+}
+
+.post-like-icon {
+	font-size: 2rem;
 }
 
 .outer1 {

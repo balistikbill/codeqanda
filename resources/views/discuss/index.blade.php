@@ -78,11 +78,9 @@ var foo1 = $('.outer1');
 
 
 
-
-{{ $links->links() }}
 </div>
 	<div class="col-md-9 discuss-wrapper">
-			@foreach ($posts as $post)
+			@foreach ($postsForPagination as $post)
 
 			<div class="individual-post-wrapper">
 			<div class="row">
@@ -127,21 +125,14 @@ var foo1 = $('.outer1');
 			@endforeach
 
 		</div>
-    {{-- </div> --}}
+
 <div class="col-md-3"></div>
 </div></div>
 <div class="row">
 	<div class="col-md-4">k</div>
-	<div class="col-md-6 text-center">
-	@if ( isset($_GET['page']) )
-		{{ App\Helpers::pageCounter($_GET['page']) }} 
-	@else
-		{{ App\Helpers::pageCounter() }} 
-	@endif
-	</div>
-	{{-- <div class="col-md-5"></div> --}}
+		<div class="col-md-6 text-center">
+			{{ $postsForPagination->links() }}
+		</div>
 </div>
-
-
 </div>
 @stop
