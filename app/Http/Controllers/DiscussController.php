@@ -39,9 +39,8 @@ class DiscussController extends Controller
     //         $posts = Post::orderBy('created_at', 'DESC')->skip($skipNumber - 20)->take(20)->get();
     //     }
 
-         $links = Post::orderBy('created_at', 'DESC')->paginate(20);
+        $links = Post::orderBy('created_at', 'DESC')->paginate(20);
 
-         
         return view('discuss.index')->with('posts', $posts)->with('links', $links);
     }
 
